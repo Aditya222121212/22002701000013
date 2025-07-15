@@ -4,7 +4,7 @@ import Url from '../models/url.js';  // make sure you have correct file extensio
 export const createShortUrl = async (req, res) => {
     try {
         const { url, validity, shortcode } = req.body;
-
+        // console.log('Received data:', req.body);
         if (!url) {
             return res.status(400).json({ error: 'URL is required.' });
         }
@@ -27,7 +27,7 @@ export const createShortUrl = async (req, res) => {
         });
 
         return res.status(201).json({
-            shortLink: `http://localhost:5000/${shortCode}`,
+            shortLink: `http://localhost:3000/${shortCode}`,
             expiry: expiry.toISOString()
         });
 
